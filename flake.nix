@@ -23,11 +23,8 @@
         {
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
-              # Add your development packages here
+              (haskellPackages.ghcWithPackages (ps: with ps; [ tidal ]))
             ];
-            shellHook = ''
-              echo "Hello, world!"
-            '';
           };
         };
     };
